@@ -16,7 +16,7 @@ const App = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username">Enter your GitHub Username</label>
-      <input name="username" type="text"></input>
+      <input id="username" type="text"></input>
     </form>
   );
 }
