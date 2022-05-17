@@ -1,13 +1,17 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const App = () => {
+  const [username, setUserName] = useState('');
   const navigate = useNavigate();
 
+  const handleChange = (event) => {
+    setUserName(event.target.value);
+  }
+  
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const username = event.target[0].value;
-    
     if (username) {
       navigate(`/${username}`)
     }
@@ -16,7 +20,7 @@ const App = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username">Enter your GitHub Username</label>
-      <input id="username" type="text"></input>
+      <input id="username" type="text" value={username} onChange={handleChange}></input>
     </form>
   );
 }
