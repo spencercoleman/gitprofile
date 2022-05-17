@@ -1,28 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import UserForm from "../UserForm/UserForm";
 
 const App = () => {
-  const [username, setUserName] = useState('');
-  const navigate = useNavigate();
-
-  const handleChange = (event) => {
-    setUserName(event.target.value);
-  }
-  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (username) {
-      navigate(`/${username}`)
-    }
-  }
+  const [username, setUsername] = useState('');
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Enter your GitHub Username</label>
-      <input id="username" type="text" value={username} onChange={handleChange}></input>
-    </form>
-  );
+    <UserForm username={username} setUsername={setUsername} />
+  )
 }
 
 export default App;
