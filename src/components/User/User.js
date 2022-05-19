@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/http';
+import UserRepos from '../UserRepos/UserRepos';
 import Error from '../Error/Error';
 
 const User = () => {
@@ -32,6 +33,9 @@ const User = () => {
                     <li>{user.followers} {user.followers === 1 ? 'follower' : 'followers'}</li>
                     <li>{user.following} following</li>
                 </ul>
+                <div>
+                    <UserRepos repos_url={user.repos_url}/>
+                </div>
             </div>
         )
     }
