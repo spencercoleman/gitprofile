@@ -7,12 +7,14 @@ import Error from '../Error/Error';
 const User = () => {
     const params = useParams();
     const [isLoading, fetchedData] = useFetch('https://api.github.com/users/' + params.userId);
+    
+    let user = null;
+    let content = <div>Loading...</div>;
 
     if (!isLoading && fetchedData) {
-        const user = fetchedData;
-        console.log(fetchedData);
-
-        return (
+        user = fetchedData;
+        
+        content = (
             <div>
                 <img src={user.avatar_url} alt={user.login}></img>
                 <h1>{user.name}</h1>
@@ -23,7 +25,6 @@ const User = () => {
                     {user.location && <li>{user.location}</li>}
                     <li>{user.created_at}</li>
                 </ul>
-
                 {user.bio && <div>{user.bio}</div>}
                 <ul>
                     <li>{user.public_repos} {user.public_repos === 1 ? 'repository' : 'repositories'}</li>
@@ -37,16 +38,12 @@ const User = () => {
                     <UserRepos repos_url={user.repos_url}/>
                 </div>
             </div>
-        )
+        );
     }
-    else if (!isLoading && !fetchedData) {
-        return <Error />;
+    else if (!isLoading && !user) {
+        content = <Error />;
     }
-    else {
-        return (
-            <div>Loading...</div>
-        )
-    }
+    return content;
 }
 
 export default User;

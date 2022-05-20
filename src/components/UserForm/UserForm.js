@@ -17,10 +17,10 @@ const UserForm = ({username, setUsername}) => {
     }
 
     return (
-    <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Enter your GitHub Username</label>
-        <input id="username" type="text" value={username} onChange={handleChange}></input>
-    </form>
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="username">Enter your GitHub Username</label>
+            <input id="username" type="text" value={username} onChange={handleChange}></input>
+        </form>
     );
 }
 

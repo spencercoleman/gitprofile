@@ -5,11 +5,14 @@ const UserRepos = ({repos_url}) => {
     const [isLoading, fetchedData] = useFetch(repos_url);
     console.log(fetchedData);
 
-    if (!isLoading && fetchedData) {
-        const repos = fetchedData;
+    let repos = null;
+    let content = <div>Loading...</div>;
 
-        if (repos.length) {
-            return (
+    if (!isLoading && fetchedData) {
+        repos = fetchedData;
+
+        if (repos.length > 0) {
+            content =  (
                 <div>
                     <h2>Top Repositories</h2>
                     <ul>{repos.map(repo => <li key={repo.id}>{repo.name}</li>)}</ul>
@@ -17,11 +20,7 @@ const UserRepos = ({repos_url}) => {
             );
         }
     }
-    else {
-        return (
-            <div>Loading...</div>
-        );
-    }
+    return content;
 }
 
 export default UserRepos;
