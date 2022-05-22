@@ -1,12 +1,13 @@
 import React from 'react';
 import { useFetch } from '../../hooks/http';
+import Loader from '../Loader/Loader';
 
 const UserRepos = ({repos_url}) => {
     const [isLoading, fetchedData] = useFetch(repos_url);
     console.log(fetchedData);
 
     let repos = null;
-    let content = <div>Loading...</div>;
+    let content = <Loader />;
 
     if (!isLoading && fetchedData) {
         repos = fetchedData;

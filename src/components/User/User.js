@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/http';
 import UserRepos from '../UserRepos/UserRepos';
+import Loader from '../Loader/Loader';
 import Error from '../Error/Error';
 
 const User = () => {
@@ -9,7 +10,7 @@ const User = () => {
     const [isLoading, fetchedData] = useFetch('https://api.github.com/users/' + params.userId);
     
     let user = null;
-    let content = <div>Loading...</div>;
+    let content = <Loader />;
 
     if (!isLoading && fetchedData) {
         user = fetchedData;
