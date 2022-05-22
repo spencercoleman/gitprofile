@@ -5,8 +5,8 @@ const Repo = ({description, forks_count, html_url, language, name, size, stargaz
                 <h3>{name}</h3>
                 <p>{description}</p>
                 <div>
-                    <span>{stargazers_count} stars</span> {' '}
-                    <span>{forks_count} forks</span> {' '}
+                    <span>{stargazers_count}</span> {' '}
+                    <span>{forks_count}</span> {' '}
                     <span>{size} KB</span> {' '}
                     <span>{language}</span>
                 </div>

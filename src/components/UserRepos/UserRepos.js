@@ -17,16 +17,16 @@ const UserRepos = ({repos_url}) => {
                 <div>
                     <h2>Top Repositories</h2>
                     <ul>{repos.map(repo => (
-                            <Repo 
-                                key={repo.id} 
-                                description={repo.description} 
-                                forks_count={repo.forks_count}
-                                html_url={repo.html_url} 
-                                language={repo.language}
-                                name={repo.name}
-                                size={repo.size}
-                                stargazers_count={repo.stargazers_count}
-                            />
+                        <Repo 
+                            key={repo.id} 
+                            description={repo.description} 
+                            forks_count={repo.forks_count}
+                            html_url={repo.html_url} 
+                            language={repo.language}
+                            name={repo.name}
+                            size={repo.size}
+                            stargazers_count={repo.stargazers_count}
+                        />
                         ))}
                     </ul>
                 </div>
