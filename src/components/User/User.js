@@ -27,7 +27,7 @@ const User = () => {
                         {user.location && <li>{user.location}</li>}
                         <li>{new Date(user.created_at).toLocaleDateString()}</li>
                     </ul>
-                    {user.bio && <div>{user.bio}</div>}
+                    {user.bio && <p>{user.bio}</p>}
                 </div>
                 <div id="content">
                     <div id="stats">
