@@ -4,3 +4,8 @@ body {
     font-size: 1.25rem;
     line-height: 1.75rem;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+}

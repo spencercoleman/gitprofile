@@ -1,6 +1,5 @@
 import { useState } from "react";
-import UserForm from "../UserForm/UserForm";
-import './App.css';
+import UserForm from "./components/UserForm/UserForm";
 
 const App = () => {
   const [username, setUsername] = useState('');

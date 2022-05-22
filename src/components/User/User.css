@@ -1,0 +1,19 @@
+#avatar {
+    border-radius: 50%;
+}
+
+#User {
+    max-width: 1280px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+#repos {
+    grid-column-start: 2;
+}
+
+#details {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 2;
+}
