@@ -15,32 +15,32 @@ const User = () => {
 
     if (!isLoading && fetchedData) {
         user = fetchedData;
-        
         content = (
             <div id="User">
                 <div id="details">
                     <img id="avatar" src={user.avatar_url} alt={user.login}></img>
                     <h1>{user.name}</h1>
-                    <h2><a href={user.html_url} target='_blank' rel='noreferrer'>@{user.login}</a></h2>
-                    {user.blog && <div>{user.blog}</div>}
-
+                    <a href={user.html_url} target='_blank' rel='noreferrer'>@{user.login}</a>
+                    {user.blog && <a href={user.blog} target='_blank' rel='noreferrer'>{user.blog}</a>}
                     <ul>
                         {user.company && <li>{user.company}</li>}
                         {user.location && <li>{user.location}</li>}
-                        <li>{user.created_at}</li>
+                        <li>{new Date(user.created_at).toLocaleDateString()}</li>
                     </ul>
                     {user.bio && <div>{user.bio}</div>}
-                    <ul>
-                        <li>{user.public_repos} {user.public_repos === 1 ? 'repository' : 'repositories'}</li>
-                        <li>{user.public_gists} {user.public_gists === 1 ? 'gist' : 'gists'}</li>
-                    </ul>
-                    <ul>
-                        <li>{user.followers} {user.followers === 1 ? 'follower' : 'followers'}</li>
-                        <li>{user.following} following</li>
-                    </ul>
                 </div>
-                <div id="repos">
-                    <UserRepos repos_url={user.repos_url}/>
+                <div id="content">
+                    <div id="stats">
+                        <ul id="counts">
+                            <li><h2>{user.public_repos}</h2> {user.public_repos === 1 ? 'repository' : 'repositories'}</li>
+                            <li><h2>{user.public_gists}</h2> {user.public_gists === 1 ? 'gist' : 'gists'}</li>
+                            <li><h2>{user.followers}</h2> {user.followers === 1 ? 'follower' : 'followers'}</li>
+                            <li><h2>{user.following}</h2> following</li>
+                        </ul>
+                    </div>
+                    <div id="repos">
+                        <UserRepos repos_url={user.repos_url}/>
+                    </div>
                 </div>
             </div>
         );
