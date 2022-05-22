@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './UserForm.css';
 
 const UserForm = ({username, setUsername}) => {
     const navigate = useNavigate();
@@ -17,10 +18,12 @@ const UserForm = ({username, setUsername}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Enter your GitHub Username</label>
-            <input id="username" type="text" value={username} onChange={handleChange}></input>
-        </form>
+        <div id="UserForm">
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Enter your GitHub username</label>
+                <input id="username" type="text" value={username} onChange={handleChange}></input>
+            </form>
+        </div>
     );
 }
 
