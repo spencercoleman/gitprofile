@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "react-flip-move": "^3.0.4",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0"
   }

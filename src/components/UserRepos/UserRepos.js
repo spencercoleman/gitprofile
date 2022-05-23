@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useFetch } from '../../hooks/http';
+import FlipMove from 'react-flip-move';
 import Loader from '../Loader/Loader';
 import Repo from '../Repo/Repo';
 import './UserRepos.css';
@@ -44,7 +45,7 @@ const UserRepos = ({repos_url}) => {
                         </select>
                     </div>
                     <hr></hr>
-                    <ul className="repo-list">
+                    <FlipMove typeName="ul" className="repo-list">
                     {sorted
                         .slice(0, 10)
                         .map(repo => (
@@ -59,7 +60,7 @@ const UserRepos = ({repos_url}) => {
                             stargazers_count={repo.stargazers_count}
                         />
                     ))}
-                    </ul>
+                    </FlipMove>
                 </div>
             );
         }
