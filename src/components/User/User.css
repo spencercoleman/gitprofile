@@ -35,8 +35,13 @@
     margin: 0;
 }
 
-.details ul > li > i {
-    margin-right: 0.5rem;
+.details ul > li {
+    display: flex;
+    align-items: center;
+}
+
+.details ul > li > svg {
+    margin-right: 0.7rem;
 }
 
 .details hr {

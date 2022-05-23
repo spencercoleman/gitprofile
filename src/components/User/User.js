@@ -1,11 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/http';
+import { FiBriefcase, FiMapPin, FiCalendar, FiLink } from 'react-icons/fi';
 import UserRepos from '../UserRepos/UserRepos';
 import Loader from '../Loader/Loader';
 import Error from '../Error/Error';
 import './User.css';
-import { mockUserData } from '../../utils/mockUserData';
 
 const User = () => {
     const params = useParams();
@@ -22,7 +22,6 @@ const User = () => {
                     <img className="avatar" src={user.avatar_url} alt={user.login}></img>
                     <h1>{user.name}</h1>
                     <a href={user.html_url} target='_blank' rel='noreferrer'>@{user.login}</a>
-                    {user.blog && <a href={user.blog} target='_blank' rel='noreferrer'>{user.blog}</a>}
                     {user.bio && (
                         <div>
                             <hr></hr>
@@ -31,9 +30,10 @@ const User = () => {
                     )}
                     <hr></hr>
                     <ul>
-                        {user.company && <li>{user.company}</li>}
-                        {user.location && <li>{user.location}</li>}
-                        <li>{new Date(user.created_at).toLocaleDateString()}</li>
+                        {user.blog && <li><FiLink /> <a href={user.blog} target='_blank' rel='noreferrer'>{user.blog}</a></li>}
+                        {user.company && <li><FiBriefcase /> {user.company}</li>}
+                        {user.location && <li> <FiMapPin /> {user.location}</li>}
+                        <li><FiCalendar /> {new Date(user.created_at).toLocaleDateString()}</li>
                     </ul>
                 </div>
                 <div className="content">

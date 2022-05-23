@@ -23,6 +23,15 @@
     margin: 0;
 }
 
+.repo-name {
+    display: flex;
+    align-items: center;
+}
+
+.repo-name svg {
+    margin-right: 0.7rem;
+}
+
 .repo-stats-container {
     display: flex;
 }
@@ -32,6 +41,15 @@
     justify-content: space-between;
     margin-right: auto;
     list-style: none;
-    width: 50%;
     margin-top: auto;
+}
+
+.repo-stats li {
+    display: flex;
+    align-items: center;
+    margin-right: 1.5rem;
+}
+
+.repo-stats svg {
+    margin-right: 0.7rem;
 }
