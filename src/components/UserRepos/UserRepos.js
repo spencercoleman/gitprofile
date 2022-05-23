@@ -2,6 +2,7 @@ import React from 'react';
 import { useFetch } from '../../hooks/http';
 import Loader from '../Loader/Loader';
 import Repo from '../Repo/Repo';
+import './UserRepos.css';
 
 const UserRepos = ({repos_url}) => {
     const [isLoading, fetchedData] = useFetch(repos_url);
@@ -14,9 +15,10 @@ const UserRepos = ({repos_url}) => {
 
         if (repos.length > 0) {
             content =  (
-                <div>
+                <div className="UserRepos">
                     <h2>Top Repositories</h2>
-                    <ul>{repos.map(repo => (
+                    <hr></hr>
+                    <ul className="repo-list">{repos.map(repo => (
                         <Repo 
                             key={repo.id} 
                             description={repo.description} 

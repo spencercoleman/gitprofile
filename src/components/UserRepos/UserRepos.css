@@ -1,0 +1,10 @@
+.UserRepos h2 {
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.repo-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1rem;
+}
