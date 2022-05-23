@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './UserForm.css';
 
@@ -21,7 +21,7 @@ const UserForm = ({username, setUsername}) => {
         <div id="UserForm">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Enter your GitHub username</label>
-                <input id="username" type="text" value={username} onChange={handleChange}></input>
+                <input id="username" type="text" value={username} onChange={handleChange} autoFocus></input>
             </form>
         </div>
     );

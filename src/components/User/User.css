@@ -19,7 +19,16 @@
 .details {
     display: flex;
     flex-direction: column;
-    grid-column: 1 2;
+    padding: 1rem;
+}
+
+.details a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.details a:hover {
+    text-decoration: underline;
 }
 
 .details ul {
@@ -42,10 +51,10 @@
 .avatar {
     border-radius: 50%;
     max-width: 260px;
+    margin: 0 auto;
 }
 
 .content {
-    grid-column-start: 2;
     padding-left: 1rem;
     padding-right: 1rem;
 }
@@ -59,4 +68,19 @@
     font-weight: 400;
     font-size: 1.5rem;
     margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .User {
+        grid-template-columns: 1fr !important;
+        grid-auto-flow: row;
+    }
+
+    .avatar {
+        max-width: 160px;
+    }
+
+    .details {
+        text-align: center;
+    }
 }

@@ -2,7 +2,10 @@
     border: 1px solid;
     border-radius: 0.25rem;
     padding: 1rem;
+}
 
+.Repo:hover h3 {
+    text-decoration: underline;
 }
 
 .Repo a {
