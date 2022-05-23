@@ -1,6 +1,32 @@
+.UserRepos {
+    padding-top: 1rem;
+}
+
+.UserRepos .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .UserRepos h2 {
     font-weight: 400;
     font-size: 1.5rem;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.UserRepos select {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    border: 1px solid;
+    border-radius: 0.25rem;
+    width: 100px;
+}
+
+.UserRepos select:focus {
+    outline: none;
 }
 
 .repo-list {

@@ -45,9 +45,7 @@ const User = () => {
                             <li><h2>{user.following}</h2> following</li>
                         </ul>
                     </div>
-                    <div>
-                        <UserRepos repos_url={user.repos_url}/>
-                    </div>
+                    <UserRepos repos_url={user.repos_url}/>
                 </div>
             </div>
         );
