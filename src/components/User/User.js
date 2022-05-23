@@ -5,6 +5,7 @@ import UserRepos from '../UserRepos/UserRepos';
 import Loader from '../Loader/Loader';
 import Error from '../Error/Error';
 import './User.css';
+import { mockUserData } from '../../utils/mockUserData';
 
 const User = () => {
     const params = useParams();
@@ -16,29 +17,35 @@ const User = () => {
     if (!isLoading && fetchedData) {
         user = fetchedData;
         content = (
-            <div id="User">
-                <div id="details">
-                    <img id="avatar" src={user.avatar_url} alt={user.login}></img>
+            <div className="User">
+                <div className="details">
+                    <img className="avatar" src={user.avatar_url} alt={user.login}></img>
                     <h1>{user.name}</h1>
                     <a href={user.html_url} target='_blank' rel='noreferrer'>@{user.login}</a>
                     {user.blog && <a href={user.blog} target='_blank' rel='noreferrer'>{user.blog}</a>}
+                    {user.bio && (
+                        <div>
+                            <hr></hr>
+                            <p>{user.bio}</p>
+                        </div>
+                    )}
+                    <hr></hr>
                     <ul>
                         {user.company && <li>{user.company}</li>}
                         {user.location && <li>{user.location}</li>}
                         <li>{new Date(user.created_at).toLocaleDateString()}</li>
                     </ul>
-                    {user.bio && <p>{user.bio}</p>}
                 </div>
-                <div id="content">
-                    <div id="stats">
-                        <ul id="counts">
-                            <li><h2>{user.public_repos}</h2> {user.public_repos === 1 ? 'repository' : 'repositories'}</li>
+                <div className="content">
+                    <div className="stats">
+                        <ul className="counts">
+                            <li><h2>{user.public_repos}</h2>{user.public_repos === 1 ? 'repository' : 'repositories'}</li>
                             <li><h2>{user.public_gists}</h2> {user.public_gists === 1 ? 'gist' : 'gists'}</li>
                             <li><h2>{user.followers}</h2> {user.followers === 1 ? 'follower' : 'followers'}</li>
                             <li><h2>{user.following}</h2> following</li>
                         </ul>
                     </div>
-                    <div id="repos">
+                    <div>
                         <UserRepos repos_url={user.repos_url}/>
                     </div>
                 </div>

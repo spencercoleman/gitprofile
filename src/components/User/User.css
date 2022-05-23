@@ -1,43 +1,60 @@
 
-#User {
+.User {
     max-width: 1280px;
     display: grid;
     grid-template-columns: 1fr 3fr;
 }
 
-#User h1 {
+.User h1 {
     font-size: 1.5rem;
     margin-bottom: 0;
     font-weight: 400;
 }
 
-#User ul {
+.User ul {
     list-style: none;
     padding: 0;
 }
 
-#details {
+.details {
     display: flex;
     flex-direction: column;
     grid-column: 1 2;
 }
 
-#avatar {
+.details ul {
+    margin: 0;
+}
+
+.details ul > li > i {
+    margin-right: 0.5rem;
+}
+
+.details hr {
+    width: 100%;
+    margin: 1rem 0 0.7rem 0;
+}
+
+.details p {
+    margin: 0;
+}
+
+.avatar {
     border-radius: 50%;
     max-width: 260px;
 }
 
-#content {
+.content {
     grid-column-start: 2;
     padding-left: 1rem;
 }
 
-#stats ul {
+.stats ul {
     display: flex;
     justify-content: space-between;
 }
 
-#counts > li > h2 {
+.counts > li > h2 {
     font-weight: 400;
     font-size: 1.5rem;
     margin: 0;
