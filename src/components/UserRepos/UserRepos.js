@@ -25,7 +25,7 @@ const UserRepos = ({repos}) => {
 
     return (
         <div className="UserRepos">
-            <div className="header">
+            <div className="repo-header">
                 <h2>Top Repositories</h2>
                 <select value={sort} onChange={handleChange}>
                     <option value="stars">Stars</option>

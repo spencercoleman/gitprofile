@@ -21,8 +21,6 @@ const User = () => {
         user = fetchedUserData;
         repos = fetchedRepoData;
 
-        console.log(user);
-
         content = (
             <div className="User">
                 <div className="details">

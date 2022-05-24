@@ -2,12 +2,6 @@
     padding-top: 1rem;
 }
 
-.UserRepos .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .UserRepos h2 {
     font-weight: 400;
     font-size: 1.5rem;
@@ -29,8 +23,14 @@
     outline: none;
 }
 
+.repo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .repo-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(435px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
     gap: 1rem;
 }
