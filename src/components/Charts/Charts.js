@@ -1,6 +1,7 @@
 import React from 'react';
 import LanguageChart from './LanguageChart';
 import StarredChart from './StarredChart';
+import './Charts.css';
 
 const Charts = ({repos}) => {
     return (

@@ -20,14 +20,14 @@ const LanguageChart = ({repos}) => {
     const options = {
         plugins: {
             title: {
-                display: false,
+                display: false
             },
             legend: {
-                display: false,
-            },
+                display: false
+            }
         },
-        responsive: true,
-    }
+        responsive: true
+    };
 
     const data = {
         labels: Object.keys(languageUseData),
@@ -37,15 +37,20 @@ const LanguageChart = ({repos}) => {
             data: Object.values(languageUseData),
             backgroundColor: ['transparent'],
             borderColor: [],
-            borderWidth: 1,
-          },
-        ],
+            borderWidth: 1
+          }
+        ]
     };
 
     return (
-        <div>
+        <div className="chart">
             <h2>Languages Used</h2>
-            <Doughnut options={options} data={data} />
+            <hr></hr>
+            <div className="chart-container">
+                <div>
+                    <Doughnut options={options} data={data} />
+                </div>
+            </div>
         </div>
     );
 }

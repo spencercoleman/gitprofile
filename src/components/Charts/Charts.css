@@ -1,0 +1,35 @@
+.Charts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.chart-container > div {
+    max-width: 200px;
+    height: 200px;
+}
+
+.chart:nth-child(2) > .chart-container > div {
+    max-width: 300px;
+    height: 200px;
+}
+
+.chart > h2 {
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+    .Charts {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+    .chart {
+        width: 100%;
+    }
+    .chart-container {
+        display: flex;
+        justify-content: center;
+    }
+}

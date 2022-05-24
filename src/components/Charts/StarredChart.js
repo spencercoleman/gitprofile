@@ -35,17 +35,22 @@ const StarredChart = ({repos}) => {
     const options = {
         plugins: {
             title: {
-                display: false,
+                display: false
             },
             legend: {
-                display: false,
-            },
+                display: false
+            }
         },
         responsive: true,
+        maintainAspectRatio: false,
         scales: {
             x: {
                 grid: {
                     display: false
+                },
+                ticks: {
+                    callback: (value, index, values) => {
+                    } 
                 }
             },
             y: {
@@ -60,19 +65,23 @@ const StarredChart = ({repos}) => {
         labels: Object.keys(starredRepoData),
         datasets: [
             {
-                label: 'Dataset 1',
                 data: Object.values(starredRepoData),
                 backgroundColor: 'transparent',
                 borderColor: '',
                 borderWidth: 1
-            },
-        ],
+            }
+        ]
     };
 
     return (
-        <div>
-            <h2>Most Starred Repositories</h2>
-            <Bar options={options} data={data} />
+        <div className="chart">
+            <h2>Most Starred Repos</h2>
+            <hr></hr>
+            <div className="chart-container">
+                <div>
+                    <Bar options={options} data={data} />
+                </div>
+            </div>
         </div>
     );
 }
