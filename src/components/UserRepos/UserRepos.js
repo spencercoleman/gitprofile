@@ -1,16 +1,10 @@
 import React, {useState} from 'react';
-import { useFetch } from '../../hooks/http';
 import FlipMove from 'react-flip-move';
-import Loader from '../Loader/Loader';
 import Repo from '../Repo/Repo';
 import './UserRepos.css';
 
-const UserRepos = ({repos_url}) => {
+const UserRepos = ({repos}) => {
     const [sort, setSort] = useState('stars');
-    const [isLoading, fetchedData] = useFetch(repos_url);
-
-    let repos = null;
-    let content = <Loader />;
 
     const handleChange = (event) => {
         setSort(event.target.value);
@@ -29,24 +23,20 @@ const UserRepos = ({repos_url}) => {
         return sorted;
     }
 
-    if (!isLoading && fetchedData) {
-        repos = fetchedData;
-
-        if (repos.length > 0) {
-            const sorted = sortRepos(repos);
-            content =  (
-                <div className="UserRepos">
-                    <div className="header">
-                        <h2>Top Repositories</h2>
-                        <select value={sort} onChange={handleChange}>
-                            <option value="stars">Stars</option>
-                            <option value="forks">Forks</option>
-                            <option value="size">Size</option>
-                        </select>
-                    </div>
-                    <hr></hr>
-                    <FlipMove typeName="ul" className="repo-list">
-                    {sorted
+    return (
+        <div className="UserRepos">
+            <div className="header">
+                <h2>Top Repositories</h2>
+                <select value={sort} onChange={handleChange}>
+                    <option value="stars">Stars</option>
+                    <option value="forks">Forks</option>
+                    <option value="size">Size</option>
+                </select>
+            </div>
+            <hr></hr>
+            {repos.length ? 
+                <FlipMove typeName="ul" className="repo-list">
+                    {sortRepos(repos)
                         .slice(0, 10)
                         .map(repo => (
                         <Repo 
@@ -60,12 +50,11 @@ const UserRepos = ({repos_url}) => {
                             stargazers_count={repo.stargazers_count}
                         />
                     ))}
-                    </FlipMove>
-                </div>
-            );
-        }
-    }
-    return content;
+            </FlipMove>
+            : 
+            <p>No repositories available</p>}
+        </div>
+    );
 }
 
 export default UserRepos;

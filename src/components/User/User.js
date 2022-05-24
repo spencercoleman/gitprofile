@@ -9,13 +9,17 @@ import './User.css';
 
 const User = () => {
     const params = useParams();
-    const [isLoading, fetchedData] = useFetch('https://api.github.com/users/' + params.userId);
+    const [isLoadingUser, fetchedUserData] = useFetch(`https://api.github.com/users/${params.userId}`);
+    const [isLoadingRepos, fetchedRepoData] = useFetch(`https://api.github.com/users/${params.userId}/repos`);
     
     let user = null;
+    let repos = null;
     let content = <Loader />;
 
-    if (!isLoading && fetchedData) {
-        user = fetchedData;
+    if (!isLoadingUser && fetchedUserData && !isLoadingRepos && fetchedRepoData) {
+        user = fetchedUserData;
+        repos = fetchedRepoData;
+
         content = (
             <div className="User">
                 <div className="details">
@@ -45,12 +49,12 @@ const User = () => {
                             <li><h2>{user.following}</h2> following</li>
                         </ul>
                     </div>
-                    <UserRepos repos_url={user.repos_url}/>
+                    <UserRepos repos={repos}/>
                 </div>
             </div>
         );
     }
-    else if (!isLoading && !user) {
+    else if (!isLoadingUser && !fetchedUserData) {
         content = <Error />;
     }
     return content;
