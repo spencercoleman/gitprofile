@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/http';
 import { FiBriefcase, FiMapPin, FiCalendar, FiLink } from 'react-icons/fi';
+import Charts from '../Charts/Charts';
 import UserRepos from '../UserRepos/UserRepos';
 import Loader from '../Loader/Loader';
 import Error from '../Error/Error';
@@ -19,6 +20,8 @@ const User = () => {
     if (!isLoadingUser && fetchedUserData && !isLoadingRepos && fetchedRepoData) {
         user = fetchedUserData;
         repos = fetchedRepoData;
+
+        console.log(user);
 
         content = (
             <div className="User">
@@ -49,6 +52,7 @@ const User = () => {
                             <li><h2>{user.following}</h2> following</li>
                         </ul>
                     </div>
+                    <Charts repos={repos} />
                     <UserRepos repos={repos}/>
                 </div>
             </div>
