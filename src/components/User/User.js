@@ -1,14 +1,14 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/http';
-import { FiBriefcase, FiMapPin, FiCalendar, FiLink } from 'react-icons/fi';
+import { FiBriefcase, FiMapPin, FiCalendar, FiLink, FiDownloadCloud } from 'react-icons/fi';
 import Charts from '../Charts/Charts';
 import UserRepos from '../UserRepos/UserRepos';
 import Loader from '../Loader/Loader';
 import Error from '../Error/Error';
 import './User.css';
 
-const User = () => {
+const User = ({rateRemaining, rateLimit}) => {
     const params = useParams();
     const [isLoadingUser, fetchedUserData] = useFetch(`https://api.github.com/users/${params.userId}`);
     const [isLoadingRepos, fetchedRepoData] = useFetch(`https://api.github.com/users/${params.userId}/repos`);
@@ -52,6 +52,10 @@ const User = () => {
                     </div>
                     <Charts repos={repos} />
                     <UserRepos repos={repos}/>
+                    <div className="rate-limit">
+                        {/* Two fetches are made so subtract those for better accuracy*/}
+                        <FiDownloadCloud /> {rateRemaining - 2} / {rateLimit} requests remaining
+                    </div>
                 </div>
             </div>
         );

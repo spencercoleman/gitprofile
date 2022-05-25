@@ -15,14 +15,14 @@ export const useFetch = (url) => {
                 return res.json();
             })
             .then(data => {
-                setIsLoading(false);
                 setFetchedData(data);
+                setIsLoading(false);
             })
             .catch(err => {
-                setIsLoading(false);
                 console.error(err);
+                setIsLoading(false);
             })
-    }, []);
+    }, [url]);
 
     return [isLoading, fetchedData];
 }
