@@ -13,9 +13,9 @@ class Repo extends React.Component {
                     <p>{description}</p>
                     <div className="repo-stats-container">
                         <ul className="repo-stats">
-                            <li><FiStar /> {stargazers_count}</li> {' '}
-                            <li><FiGitPullRequest /> {forks_count}</li> {' '}
-                            <li>{size} KB</li> {' '}
+                            <li><FiStar /> {stargazers_count.toLocaleString()}</li> {' '}
+                            <li><FiGitPullRequest /> {forks_count.toLocaleString()}</li> {' '}
+                            <li>{size.toLocaleString()} KB</li> {' '}
                         </ul>
                         <span>{language}</span>
                     </div>

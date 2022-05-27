@@ -1,8 +1,12 @@
-.UserRepos {
-    padding-top: 1rem;
+.repo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid;
 }
 
-.UserRepos h2 {
+.repo-header h2 {
     font-weight: 400;
     font-size: 1.5rem;
     margin-right: auto;
@@ -10,7 +14,7 @@
     margin-bottom: 0;
 }
 
-.UserRepos select {
+.repo-header select {
     font-family: 'Barlow', sans-serif;
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -23,14 +27,20 @@
     outline: none;
 }
 
-.repo-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.repo-list {
+    list-style: none;
+    padding: 0 !important;
+    display: grid;
+    margin-top: 0;
 }
 
-.repo-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
-    gap: 1rem;
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 992px) {
+    .repo-header {
+        margin-bottom: 1rem;
+    }
+    .repo-list {
+        grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+        gap: 1rem;
+    }
 }

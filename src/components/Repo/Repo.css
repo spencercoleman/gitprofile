@@ -1,11 +1,9 @@
 .Repo {
-    border: 1px solid;
-    border-radius: 0.25rem;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    margin-top: -1px;
+    min-height: 200px;
     padding: 1rem;
-}
-
-.Repo:hover h3 {
-    text-decoration: underline;
 }
 
 .Repo a {
@@ -13,13 +11,21 @@
     color: inherit;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100%;
 }
 
-.Repo h3 {
+.Repo a:hover, a:active, a:visited, a:focus {
+    text-decoration: none;
+}
+
+.Repo p {
+    flex-grow: 1;
+}
+
+.repo-name h3 {
     font-weight: 400;
     font-size: 1.25rem;
+    text-decoration: underline;
     margin: 0;
 }
 
@@ -34,6 +40,7 @@
 
 .repo-stats-container {
     display: flex;
+    font-size: 1rem;
 }
 
 .repo-stats {
@@ -41,7 +48,7 @@
     justify-content: space-between;
     margin-right: auto;
     list-style: none;
-    margin-top: auto;
+    padding: 0;
 }
 
 .repo-stats li {
@@ -52,4 +59,27 @@
 
 .repo-stats svg {
     margin-right: 0.7rem;
+}
+
+
+/* Media */
+/* 
+.Repo:hover h3 {
+    text-decoration: underline;
+} */
+
+@media only screen and (min-width: 992px) {
+    .repo-name h3 {
+        text-decoration: none;
+    }
+
+    .Repo:hover .repo-name h3 {
+        text-decoration: underline;
+    }
+
+    .Repo {
+        border: 1px solid;
+        border-radius: 0.25rem;
+        margin-top: 0;
+    }
 }

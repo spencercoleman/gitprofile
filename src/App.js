@@ -21,12 +21,10 @@ const App = () => {
       content = (
         <div className="App">
           <Header />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<UserForm username={username} setUsername={setUsername} />} />
-              <Route path="/:userId" element={<User rateRemaining={rateRemaining} rateLimit={rateLimit}/>} />
-            </Routes>
-          </div>
+          <Routes>
+            <Route path="/" element={<UserForm username={username} setUsername={setUsername} />} />
+            <Route path="/:userId" element={<User rateRemaining={rateRemaining} rateLimit={rateLimit}/>} />
+          </Routes>
         </div>
       );
     }

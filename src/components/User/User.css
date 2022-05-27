@@ -1,8 +1,9 @@
 
 .User {
     max-width: 1280px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr;
 }
 
 .User h1 {
@@ -11,65 +12,58 @@
     font-weight: 400;
 }
 
-.User ul {
-    list-style: none;
-    padding: 0;
+.user-avatar {
+    border-radius: 50%;
+    max-width: 160px; 
+    margin: 0 auto;
 }
 
-.details {
-    display: flex;
-    flex-direction: column;
+.user-profile {
     padding: 1rem;
+    text-align: center;
 }
 
-.details a {
-    text-decoration: none;
+.user-profile a, .user-info a {
     color: inherit;
 }
 
-.details a:hover {
-    text-decoration: underline;
-}
-
-.details ul {
+.user-bio {
+    border-top: 1px solid;
+    padding: 1rem;
     margin: 0;
 }
 
-.details ul > li {
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    list-style-image: none;
+    padding: 1rem;
+    margin: 0;
+}
+
+.user-info li {
     display: flex;
     align-items: center;
 }
 
-.details ul > li > svg {
+.user-info li > svg {
     margin-right: 0.7rem;
 }
 
-.details hr {
-    width: 100%;
-    margin: 1rem 0 0.7rem 0;
-}
-
-.details p {
+.user-stats {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
     margin: 0;
 }
 
-.avatar {
-    border-radius: 50%;
-    max-width: 260px;
-    margin: 0 auto;
-}
-
-.content {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-.stats ul {
-    display: flex;
-    justify-content: space-between;
-}
-
-.counts > li > h2 {
+.user-stats > li > h2 {
     font-weight: 400;
     font-size: 1.5rem;
     margin: 0;
@@ -86,17 +80,25 @@
     margin-right: 0.5rem;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 992px) {
     .User {
-        grid-template-columns: 1fr !important;
-        grid-auto-flow: row;
+        grid-template-columns: 1fr 3fr;
     }
 
-    .avatar {
-        max-width: 160px;
+    .user-avatar {
+        max-width: 260px;
     }
 
-    .details {
-        text-align: center;
+    .user-bio {
+        padding: 1rem 0;
+    }
+
+    .user-details, .user-content {
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+
+    .user-info {
+        padding: 1rem 0;
     }
 }

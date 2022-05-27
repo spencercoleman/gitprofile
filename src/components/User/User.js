@@ -23,33 +23,29 @@ const User = ({rateRemaining, rateLimit}) => {
 
         content = (
             <div className="User">
-                <div className="details">
-                    <img className="avatar" src={user.avatar_url} alt={user.login}></img>
-                    <h1>{user.name}</h1>
-                    <a href={user.html_url} target='_blank' rel='noreferrer'>@{user.login}</a>
+                <div className="user-details">
+                    <div className="user-profile">
+                        <img className="user-avatar" src={user.avatar_url} alt={user.login}></img>
+                        <h1>{user.name}</h1>
+                        <a href={user.html_url} target='_blank' rel='noreferrer'>@{user.login}</a>
+                    </div>
                     {user.bio && (
-                        <div>
-                            <hr></hr>
-                            <p>{user.bio}</p>
-                        </div>
+                        <p className="user-bio">{user.bio}</p>
                     )}
-                    <hr></hr>
-                    <ul>
+                    <ul className="user-info">
                         {user.blog && <li><FiLink /> <a href={user.blog} target='_blank' rel='noreferrer'>{user.blog}</a></li>}
                         {user.company && <li><FiBriefcase /> {user.company}</li>}
                         {user.location && <li> <FiMapPin /> {user.location}</li>}
                         <li><FiCalendar /> {new Date(user.created_at).toLocaleDateString()}</li>
                     </ul>
                 </div>
-                <div className="content">
-                    <div className="stats">
-                        <ul className="counts">
-                            <li><h2>{user.public_repos}</h2>{user.public_repos === 1 ? 'repository' : 'repositories'}</li>
-                            <li><h2>{user.public_gists}</h2> {user.public_gists === 1 ? 'gist' : 'gists'}</li>
-                            <li><h2>{user.followers}</h2> {user.followers === 1 ? 'follower' : 'followers'}</li>
-                            <li><h2>{user.following}</h2> following</li>
-                        </ul>
-                    </div>
+                <div className="user-content">
+                    <ul className="user-stats">
+                        <li><h2>{user.public_repos.toLocaleString()}</h2>{user.public_repos === 1 ? 'repository' : 'repositories'}</li>
+                        <li><h2>{user.public_gists.toLocaleString()}</h2> {user.public_gists === 1 ? 'gist' : 'gists'}</li>
+                        <li><h2>{user.followers.toLocaleString()}</h2> {user.followers === 1 ? 'follower' : 'followers'}</li>
+                        <li><h2>{user.following.toLocaleString()}</h2> following</li>
+                    </ul>
                     <Charts repos={repos} />
                     <UserRepos repos={repos}/>
                     <div className="rate-limit">

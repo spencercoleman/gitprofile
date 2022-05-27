@@ -33,7 +33,6 @@ const UserRepos = ({repos}) => {
                     <option value="size">Size</option>
                 </select>
             </div>
-            <hr></hr>
             {repos.length ? 
                 <FlipMove typeName="ul" className="repo-list">
                     {sortRepos(repos)

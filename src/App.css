@@ -4,20 +4,3 @@ body {
     font-size: 1.125rem;
     line-height: 1.75rem;
 }
-
-.container {
-    display: flex;
-    justify-content: center;
-}
-
-.footer {
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer svg {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-}
