@@ -7,7 +7,7 @@
 }
 
 .User h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 0;
     font-weight: 400;
 }
@@ -65,7 +65,7 @@
 
 .user-stats > li > h2 {
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: 0;
 }
 
@@ -78,6 +78,16 @@
 
 .rate-limit svg {
     margin-right: 0.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .User h1 {
+        font-size: 1.5rem;
+    }
+
+    .user-stats > li > h2 {
+        font-size: 1.5rem;
+    }
 }
 
 @media only screen and (min-width: 992px) {

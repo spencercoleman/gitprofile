@@ -1,11 +1,13 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut,  } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
+import { colors } from '../../utils/githubcolors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const LanguageChart = ({repos}) => {
     const languageUseData = {};
+    const languageColors = [];
 
     repos.forEach(repo => {
         const language = repo.language === null ? 'Other' : repo.language;
@@ -17,16 +19,36 @@ const LanguageChart = ({repos}) => {
         }
     });
 
+    for (let language in languageUseData) {
+        if (colors.hasOwnProperty(language)) {
+            if (colors[language].color !== null) {
+                languageColors.push(colors[language].color);
+            }
+            else {
+                languageColors.push('#ccc');
+            }
+        }
+        else {
+            languageColors.push('#ccc');
+        }
+    }
+
     const options = {
         plugins: {
             title: {
                 display: false
             },
             legend: {
-                display: false
+                position: 'right',
+                labels: {
+                    font: {
+                        family: 'Barlow',
+                        size: 15,
+                        align: 'end'
+                    }
+                }
             }
-        },
-        responsive: true
+        }
     };
 
     const data = {
@@ -35,22 +57,15 @@ const LanguageChart = ({repos}) => {
           {
             label: 'Languages Used',
             data: Object.values(languageUseData),
-            backgroundColor: ['transparent'],
-            borderColor: [],
-            borderWidth: 1
+            backgroundColor: languageColors,
+            borderWidth: 0,
           }
         ]
     };
 
     return (
-        <div className="chart">
-            <h2>Languages Used</h2>
-            <hr></hr>
-            <div className="chart-container">
-                <div>
-                    <Doughnut options={options} data={data} />
-                </div>
-            </div>
+        <div className="chart-container">
+            <Doughnut options={options} data={data} />
         </div>
     );
 }

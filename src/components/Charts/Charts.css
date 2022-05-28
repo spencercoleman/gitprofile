@@ -1,36 +1,85 @@
 .Charts {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
 }
 
-.chart-container > div {
-    margin-top: 1rem;
-    max-width: 200px;
-    height: 200px;
-}
-
-.chart:nth-child(3) > .chart-container > div {
+.chart-container {
+    max-height: 300px;
     max-width: 300px;
-    height: 200px;
+    margin: 0;
 }
 
-.chart > h2 {
-    font-weight: 400;
-    margin-bottom: 0;
+.react-tabs__tab-list {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.15rem;
+    display: flex;
+    justify-content: center;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-bottom: 1px solid !important;
 }
 
-@media only screen and (max-width: 1200px) {
-    .Charts {
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 1rem;
+.react-tabs__tab--selected {
+    text-decoration: underline;
+}
+
+.react-tabs__tab {
+    border: none !important;
+    padding: 1rem !important;
+    bottom: 0 !important;
+    width: 50%;
+}
+
+.react-tabs__tab:nth-child(1) {
+    border-right: 1px solid !important;
+    border-radius: 0 !important;
+}
+
+.react-tabs__tab:focus:after {
+    display: none !important;
+}
+
+.react-tabs__tab-panel {
+    padding: 0 1rem;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+    .react-tabs__tab-list {
+        font-size: 1.5rem;
+        justify-content: flex-start;
     }
-    .chart {
-        width: 100%;
+
+    .react-tabs__tab-panel {
+        padding: 0 1rem;
+        display: block !important;
     }
+
     .chart-container {
-        display: flex;
-        justify-content: center;
+        max-height: 400px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .Charts {
+        border: 1px solid;
+        border-radius: 0.25rem;
+    }
+
+    .chart-container {
+        max-height: 450px;
+        max-width: 450px;
+    }
+
+    .react-tabs__tab:hover {
+        text-decoration: underline;
+    }
+
+    .react-tabs__tab:nth-child(1) {
+        border-radius: 0.25rem 0 0 0!important;
     }
 }

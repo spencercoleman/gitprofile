@@ -75,8 +75,6 @@ const StarredChart = ({repos}) => {
 
     return (
         <div className="chart">
-            <h2>Most Starred Repos</h2>
-            <hr></hr>
             <div className="chart-container">
                 <div>
                     <Bar options={options} data={data} />
