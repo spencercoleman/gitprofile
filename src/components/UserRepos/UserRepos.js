@@ -3,7 +3,7 @@ import FlipMove from 'react-flip-move';
 import Repo from '../Repo/Repo';
 import './UserRepos.css';
 
-const UserRepos = ({repos}) => {
+const UserRepos = ({theme, repos}) => {
     const [sort, setSort] = useState('stars');
 
     const handleChange = (event) => {
@@ -25,9 +25,13 @@ const UserRepos = ({repos}) => {
 
     return (
         <div className="UserRepos">
-            <div className="repo-header">
+            <div className={`repo-header ${theme}`}>
                 <h2>Top Repositories</h2>
-                <select value={sort} onChange={handleChange}>
+                <select 
+                    className={theme} 
+                    value={sort} 
+                    onChange={handleChange} 
+                    style={{border: `1px solid var(--${theme}-border-color)`}}>
                     <option value="stars">Stars</option>
                     <option value="forks">Forks</option>
                     <option value="size">Size</option>
@@ -39,7 +43,8 @@ const UserRepos = ({repos}) => {
                         .slice(0, 10)
                         .map(repo => (
                         <Repo 
-                            key={repo.id} 
+                            key={repo.id}
+                            theme={theme} 
                             description={repo.description} 
                             forks_count={repo.forks_count}
                             html_url={repo.html_url} 

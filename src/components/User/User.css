@@ -2,8 +2,6 @@
 .User {
     max-width: 1280px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
 }
 
 .User h1 {
@@ -44,6 +42,11 @@
     list-style-image: none;
     padding: 1rem;
     margin: 0;
+}
+
+.user-info .light {
+    border-top: 1px solid var(--light-border-color);
+    border-bottom: 1px solid var(--light-border-color);
 }
 
 .user-info li {
@@ -92,7 +95,16 @@
 
 @media only screen and (min-width: 992px) {
     .User {
+        display: grid;
         grid-template-columns: 1fr 3fr;
+    }
+
+    .user-profile a, .user-info a {
+        text-decoration: none;
+    }
+
+    .user-profile a:hover, .user-info a:hover {
+        text-decoration: underline;
     }
 
     .user-avatar {
@@ -109,6 +121,10 @@
     }
 
     .user-info {
+        padding: 1rem 0;
+    }
+
+    .user-stats {
         padding: 1rem 0;
     }
 }

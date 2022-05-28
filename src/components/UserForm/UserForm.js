@@ -2,8 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './UserForm.css';
 
-const UserForm = ({username, setUsername}) => {
+const UserForm = ({isDarkTheme, username, setUsername}) => {
     const navigate = useNavigate();
+    const theme = isDarkTheme ? 'dark' : 'light';
 
     const handleChange = (event) => {
         setUsername(event.target.value);
@@ -18,10 +19,10 @@ const UserForm = ({username, setUsername}) => {
     }
 
     return (
-        <div id="UserForm">
+        <div className="UserForm">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Enter your GitHub username</label>
-                <input id="username" type="text" value={username} onChange={handleChange} autoFocus></input>
+                <input id="username" className={`input-${theme}`} type="text" value={username} onChange={handleChange} autoFocus></input>
             </form>
         </div>
     );

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import { colors } from '../../utils/githubcolors';
+import { colors } from '../../utils/gitHubColors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const LanguageChart = ({repos}) => {
+const LanguageChart = ({isDarkTheme, repos}) => {
     const languageUseData = {};
     const languageColors = [];
 
@@ -29,7 +29,7 @@ const LanguageChart = ({repos}) => {
             }
         }
         else {
-            languageColors.push('#ccc');
+            languageColors.push('#bbb');
         }
     }
 
@@ -45,7 +45,8 @@ const LanguageChart = ({repos}) => {
                         family: 'Barlow',
                         size: 15,
                         align: 'end'
-                    }
+                    },
+                    color: isDarkTheme ? '#c0caf5' : '#0f0f14'
                 }
             }
         }

@@ -40,7 +40,7 @@
 
 .repo-stats-container {
     display: flex;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 .repo-stats {
@@ -57,13 +57,24 @@
     margin-right: 1.5rem;
 }
 
-.repo-stats svg {
-    margin-right: 0.7rem;
+.repo-language {
+    display: flex;
+    align-items: center;
+}
+
+.repo-stats svg, .repo-language svg {
+    margin-right: 0.5rem;
 }
 
 @media only screen and (min-width: 600px) {
     .repo-name h3 {
         font-size: 1.25rem;
+    }
+}
+
+@media only screen and (min-width: 610px) {
+    .repo-stats-container {
+        font-size: 1rem;
     }
 }
 

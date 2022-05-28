@@ -6,6 +6,10 @@
     border-bottom: 1px solid;
 }
 
+.repo-header .light {
+    border-bottom: 1px solid var(--light-border-color);
+}
+
 .repo-header h2 {
     font-weight: 400;
     font-size: 1.2rem;
@@ -16,14 +20,19 @@
 
 .repo-header select {
     font-family: 'Barlow', sans-serif;
-    font-size: 1.125rem;
+    font-size: 1rem;
     line-height: 1.75rem;
-    border: 1px solid;
     border-radius: 0.25rem;
     width: 100px;
+    padding: 2px;
 }
 
-.UserRepos select:focus {
+.repo-header select {
+    background-color: inherit;
+    color: inherit;
+}
+
+.repo-header select:focus {
     outline: none;
 }
 
@@ -43,6 +52,7 @@
 @media only screen and (min-width: 992px) {
     .repo-header {
         margin-bottom: 1rem;
+        padding: 1rem 0;
     }
     .repo-list {
         grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));

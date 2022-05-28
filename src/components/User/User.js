@@ -8,8 +8,9 @@ import Loader from '../Loader/Loader';
 import Error from '../Error/Error';
 import './User.css';
 
-const User = ({rateRemaining, rateLimit}) => {
+const User = ({isDarkTheme, rateRemaining, rateLimit}) => {
     const params = useParams();
+    const theme = isDarkTheme ? 'dark' : 'light';
     const [isLoadingUser, fetchedUserData] = useFetch(`https://api.github.com/users/${params.userId}`);
     const [isLoadingRepos, fetchedRepoData] = useFetch(`https://api.github.com/users/${params.userId}/repos`);
     
@@ -30,13 +31,13 @@ const User = ({rateRemaining, rateLimit}) => {
                         <a href={user.html_url} target='_blank' rel='noreferrer'>@{user.login}</a>
                     </div>
                     {user.bio && (
-                        <p className="user-bio">{user.bio}</p>
+                        <p className={`user-bio ${theme}`}>{user.bio}</p>
                     )}
-                    <ul className="user-info">
+                    <ul className={`user-info ${theme}`}>
                         {user.blog && <li><FiLink /> <a href={user.blog} target='_blank' rel='noreferrer'>{user.blog}</a></li>}
                         {user.company && <li><FiBriefcase /> {user.company}</li>}
                         {user.location && <li> <FiMapPin /> {user.location}</li>}
-                        <li><FiCalendar /> {new Date(user.created_at).toLocaleDateString()}</li>
+                        <li><FiCalendar /> Created {new Date(user.created_at).toLocaleDateString()}</li>
                     </ul>
                 </div>
                 <div className="user-content">
@@ -46,8 +47,8 @@ const User = ({rateRemaining, rateLimit}) => {
                         <li><h2>{user.followers.toLocaleString()}</h2> {user.followers === 1 ? 'follower' : 'followers'}</li>
                         <li><h2>{user.following.toLocaleString()}</h2> following</li>
                     </ul>
-                    <Charts repos={repos} />
-                    <UserRepos repos={repos}/>
+                    <Charts isDarkTheme={isDarkTheme} repos={repos} />
+                    <UserRepos theme={theme} repos={repos}/>
                     <div className="rate-limit">
                         {/* Two fetches are made so subtract those for better accuracy*/}
                         <FiDownloadCloud /> {rateRemaining - 2} / {rateLimit} requests remaining

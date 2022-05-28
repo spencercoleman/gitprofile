@@ -1,11 +1,11 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import { colors } from '../../utils/githubcolors';
+import { colors } from '../../utils/gitHubColors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const LanguageStarsChart = ({repos}) => {
+const LanguageStarsChart = ({isDarkTheme, repos}) => {
     const languageUseData = {};
     const languageColors = [];
 
@@ -29,7 +29,7 @@ const LanguageStarsChart = ({repos}) => {
             }
         }
         else {
-            languageColors.push('#ccc');
+            languageColors.push('#bbb');
         }
     }
 
@@ -44,8 +44,9 @@ const LanguageStarsChart = ({repos}) => {
                     font: {
                         family: 'Barlow',
                         size: 15,
-                        align: 'end'
-                    }
+                        align: 'end',
+                    },
+                color: isDarkTheme ? '#c0caf5' : '#0f0f14'
                 }
             }
         }
@@ -58,7 +59,7 @@ const LanguageStarsChart = ({repos}) => {
             label: 'Languages Used',
             data: Object.values(languageUseData),
             backgroundColor: languageColors,
-            borderWidth: 0
+            borderWidth: 0,
           }
         ]
     };
