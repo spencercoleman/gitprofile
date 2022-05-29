@@ -6,7 +6,10 @@ const Header = ({isDarkTheme, setIsDarkTheme}) => {
     const theme = isDarkTheme ? 'dark' : 'light';
     
     const handleClick = () => {
+        const newTheme = (theme === 'dark') ? 'light' : 'dark';
         setIsDarkTheme(!isDarkTheme);
+        document.body.classList.add(newTheme);
+        document.body.classList.remove(theme);
     }
 
     return (

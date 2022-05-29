@@ -11,8 +11,8 @@ import './User.css';
 const User = ({isDarkTheme, rateRemaining, rateLimit}) => {
     const params = useParams();
     const theme = isDarkTheme ? 'dark' : 'light';
-    const [isLoadingUser, fetchedUserData] = useFetch(`https://api.github.com/users/${params.userId}`);
-    const [isLoadingRepos, fetchedRepoData] = useFetch(`https://api.github.com/users/${params.userId}/repos`);
+    const [isLoadingUser, fetchedUserData, userErrorData] = useFetch(`https://api.github.com/users/${params.userId}`);
+    const [isLoadingRepos, fetchedRepoData, repoErrorData] = useFetch(`https://api.github.com/users/${params.userId}/repos`);
     
     let user = null;
     let repos = null;
@@ -47,8 +47,8 @@ const User = ({isDarkTheme, rateRemaining, rateLimit}) => {
                         <li><h2>{user.followers.toLocaleString()}</h2> {user.followers === 1 ? 'follower' : 'followers'}</li>
                         <li><h2>{user.following.toLocaleString()}</h2> following</li>
                     </ul>
-                    <Charts isDarkTheme={isDarkTheme} repos={repos} />
-                    <UserRepos theme={theme} repos={repos}/>
+                    <Charts isDarkTheme={isDarkTheme} username={user.login} repos={repos} />
+                    <UserRepos theme={theme} username={user.login} repos={repos}/>
                     <div className="rate-limit">
                         {/* Two fetches are made so subtract those for better accuracy*/}
                         <FiDownloadCloud /> {rateRemaining - 2} / {rateLimit} requests remaining
@@ -57,8 +57,8 @@ const User = ({isDarkTheme, rateRemaining, rateLimit}) => {
             </div>
         );
     }
-    else if (!isLoadingUser && !fetchedUserData) {
-        content = <Error />;
+    else if (!isLoadingUser && (userErrorData || repoErrorData)) {
+        content = <Error type={userErrorData ? userErrorData : repoErrorData} />;
     }
     return content;
 }

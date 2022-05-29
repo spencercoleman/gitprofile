@@ -6,7 +6,7 @@ import LanguageStarsChart from './LanguageStarsChart';
 import './Charts.css';
 import 'react-tabs/style/react-tabs.css';
 
-const Charts = ({isDarkTheme, repos}) => {
+const Charts = ({isDarkTheme, username, repos}) => {
     const theme = isDarkTheme ? 'dark' : 'light';
     
     return (
@@ -17,10 +17,10 @@ const Charts = ({isDarkTheme, repos}) => {
                 {/* <Tab>Most Starred Repos</Tab> */}
             </TabList>
             <TabPanel>
-                <LanguageChart isDarkTheme={isDarkTheme} repos={repos} />
+                <LanguageChart isDarkTheme={isDarkTheme} username={username} repos={repos} />
             </TabPanel>
             <TabPanel>
-                <LanguageStarsChart isDarkTheme={isDarkTheme} repos={repos} />
+                <LanguageStarsChart isDarkTheme={isDarkTheme} username={username} repos={repos} />
             </TabPanel>
             {/* <TabPanel>
                 <StarredChart repos={repos} />

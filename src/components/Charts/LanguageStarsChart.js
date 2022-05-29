@@ -5,7 +5,7 @@ import { colors } from '../../utils/gitHubColors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const LanguageStarsChart = ({isDarkTheme, repos}) => {
+const LanguageStarsChart = ({isDarkTheme, username, repos}) => {
     const languageUseData = {};
     const languageColors = [];
 
@@ -64,9 +64,11 @@ const LanguageStarsChart = ({isDarkTheme, repos}) => {
         ]
     };
 
+    const content = repos.length ? <Doughnut options={options} data={data} /> : <p>{username} doesn't have any language data.</p>;
+
     return (
         <div className="chart-container">
-            <Doughnut options={options} data={data} />
+            {content}
         </div>
     );
 }

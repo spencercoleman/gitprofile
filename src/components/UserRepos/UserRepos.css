@@ -6,10 +6,6 @@
     border-bottom: 1px solid;
 }
 
-.repo-header .light {
-    border-bottom: 1px solid var(--light-border-color);
-}
-
 .repo-header h2 {
     font-weight: 400;
     font-size: 1.2rem;
@@ -40,7 +36,7 @@
     list-style: none;
     padding: 0 !important;
     display: grid;
-    margin-top: 0;
+    margin: 0;
 }
 
 @media only screen and (min-width: 768px) {

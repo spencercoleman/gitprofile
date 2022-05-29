@@ -3,7 +3,7 @@ import FlipMove from 'react-flip-move';
 import Repo from '../Repo/Repo';
 import './UserRepos.css';
 
-const UserRepos = ({theme, repos}) => {
+const UserRepos = ({theme, username, repos}) => {
     const [sort, setSort] = useState('stars');
 
     const handleChange = (event) => {
@@ -24,7 +24,7 @@ const UserRepos = ({theme, repos}) => {
     }
 
     return (
-        <div className="UserRepos">
+        <div className={`UserRepos ${theme}`}>
             <div className={`repo-header ${theme}`}>
                 <h2>Top Repositories</h2>
                 <select 
@@ -56,7 +56,13 @@ const UserRepos = ({theme, repos}) => {
                     ))}
             </FlipMove>
             : 
-            <p>No repositories available</p>}
+            <p style={{
+                textAlign: 'center', 
+                padding: '1rem 1rem 2rem 1rem', 
+                margin: 0,
+                borderBottom: `1px solid var(--${theme}-border-color)`}}>
+                    {username} doesn't have any public repositories.
+            </p>}
         </div>
     );
 }

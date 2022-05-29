@@ -6,12 +6,13 @@ import Header from "./components/Header/Header";
 import UserForm from "./components/UserForm/UserForm";
 import User from './components/User/User';
 import Loader from "./components/Loader/Loader";
+import Error from "./components/Error/Error";
 import './App.css';
 
 const App = () => {
   const [username, setUsername] = useState('');
   const [isDarkTheme, setIsDarkTheme] = useThemeDetector();
-  const [isLoading, fetchedData] = useFetch('https://api.github.com/rate_limit');
+  const [isLoading, fetchedData, errorData] = useFetch('https://api.github.com/rate_limit');
   const theme = isDarkTheme ? 'dark' : 'light';
   
   let content = <Loader />;
@@ -20,27 +21,18 @@ const App = () => {
     const rateRemaining = fetchedData.rate.remaining;
     const rateLimit = fetchedData.rate.limit;
 
-    if (rateRemaining > 0) {
-      content = (
-        <div className={`App ${theme}`}>
-          <Header isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
-          <Routes>
-            <Route path="/" element={<UserForm isDarkTheme={isDarkTheme} username={username} setUsername={setUsername} />} />
-            <Route path="/:userId" element={<User isDarkTheme={isDarkTheme} rateRemaining={rateRemaining} rateLimit={rateLimit}/>} />
-          </Routes>
-        </div>
-      );
-    }
-    else {
-      content = (
-        <div>Oops! No more requests left. Try again later.</div>
-      )
-    }
-  }
-  else if (!isLoading && !fetchedData) {
     content = (
-      <div>Something went wrong somewhere. Try again.</div>
+      <div className={`App ${theme}`}>
+        <Header isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
+        <Routes>
+          <Route path="/" element={<UserForm isDarkTheme={isDarkTheme} username={username} setUsername={setUsername} />} />
+          <Route path="/:userId" element={<User isDarkTheme={isDarkTheme} rateRemaining={rateRemaining} rateLimit={rateLimit}/>} />
+        </Routes>
+      </div>
     );
+  }
+  else if (!isLoading && errorData) {
+    content = <Error type={errorData} />;
   }
   return content;
 }
