@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useFetch } from "./hooks/http";
 import { useThemeDetector } from "./hooks/theme";
-import Header from "./components/Header/Header";
 import UserForm from "./components/UserForm/UserForm";
 import User from './components/User/User';
 import Loader from "./components/Loader/Loader";
@@ -15,7 +14,7 @@ const App = () => {
   const [isLoading, fetchedData, errorData] = useFetch('https://api.github.com/rate_limit');
   const theme = isDarkTheme ? 'dark' : 'light';
   
-  let content = <Loader />;
+  let content = <Loader theme={theme} />;
 
   if (!isLoading && fetchedData) {
     const rateRemaining = fetchedData.rate.remaining;
@@ -23,10 +22,10 @@ const App = () => {
 
     content = (
       <div className={`App ${theme}`}>
-        <Header isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
         <Routes>
-          <Route path="/" element={<UserForm isDarkTheme={isDarkTheme} username={username} setUsername={setUsername} />} />
-          <Route path="/:userId" element={<User isDarkTheme={isDarkTheme} rateRemaining={rateRemaining} rateLimit={rateLimit}/>} />
+            <Route path="/" element={<UserForm isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} username={username} setUsername={setUsername} />} />
+            <Route path="/:userId" element={<User isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} rateRemaining={rateRemaining} rateLimit={rateLimit}/>} />
+            <Route path="*" element={<Error />} />
         </Routes>
       </div>
     );

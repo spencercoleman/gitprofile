@@ -3,10 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 0 1rem;
     text-align: center;
     max-width: 1280px;
-    height: 80vh;
+    height: 100vh;
     margin: 0 auto;
 }
 

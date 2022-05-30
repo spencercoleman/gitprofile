@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FiChevronDown } from 'react-icons/fi';
 import './UserForm.css';
@@ -21,27 +20,25 @@ const UserForm = ({isDarkTheme, username, setUsername}) => {
         setUsername('');
     }
 
+    document.title = "Hub";
+
     return (
         <div className="UserForm">
-            <div>
-                <div className="hero">
-                    <h1>A better way to view your GitHub stats</h1>
-                </div>
-                <div className="icon">
-                    <FiChevronDown />
-                </div>
-                <form onSubmit={handleSubmit}>
-                    <input 
-                        id="username" 
-                        className={`input-${theme}`} 
-                        type="text" 
-                        value={username} 
-                        onChange={handleChange}
-                        placeholder="Search your username" 
-                        autoFocus>
-                    </input>
-                </form>
+            <h1>A better way to view your GitHub stats.</h1>
+            <div className="icon">
+                <FiChevronDown />
             </div>
+            <form onSubmit={handleSubmit}>
+                <input 
+                    id="username" 
+                    className={`input-${theme}`} 
+                    type="text" 
+                    value={username} 
+                    onChange={handleChange}
+                    placeholder="Search your username" 
+                    autoFocus>
+                </input>
+            </form>
         </div>
     );
 }

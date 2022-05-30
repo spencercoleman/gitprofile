@@ -4,21 +4,15 @@ import Repo from '../Repo/Repo';
 import './UserRepos.css';
 
 const UserRepos = ({theme, username, repos}) => {
-    const [sort, setSort] = useState('stars');
+    const [sortCriteria, setSortCriteria] = useState('stargazers_count');
 
     const handleChange = (event) => {
-        setSort(event.target.value);
+        setSortCriteria(event.target.value);
     }
 
     const sortRepos = (repos) => {
         const sorted = repos.sort((a, b) => {
-            if (sort === 'forks') {
-                return b.forks_count - a.forks_count;
-            }
-            else if (sort === 'size') {
-                return b.size - a.size;
-            }
-            return b.stargazers_count - a.stargazers_count;
+            return b[sortCriteria] - a[sortCriteria];
         });
         return sorted;
     }
@@ -29,11 +23,11 @@ const UserRepos = ({theme, username, repos}) => {
                 <h2>Top Repositories</h2>
                 <select 
                     className={theme} 
-                    value={sort} 
+                    value={sortCriteria} 
                     onChange={handleChange} 
                     style={{border: `1px solid var(--${theme}-border-color)`}}>
-                    <option value="stars">Stars</option>
-                    <option value="forks">Forks</option>
+                    <option value="stargazers_count">Stars</option>
+                    <option value="forks_count">Forks</option>
                     <option value="size">Size</option>
                 </select>
             </div>

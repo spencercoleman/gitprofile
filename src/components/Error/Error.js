@@ -1,4 +1,3 @@
-import React from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import './Error.css';
@@ -9,11 +8,13 @@ const Error = ({type}) => {
 
     if (type === '403') {
         message = 'Oops! You hit the rate limit.';
-        action = <p style={{margin: 0, padding: '0 1rem'}}>Try again later.</p>;
+        action = <Link to="/">Try Again Later</Link>;
     }
     else if (type === '404') {
         message = 'Couldn\'t find that user.';
     }
+
+    document.title = `Hub - ${message.slice(0, message.length - 1)}`
 
     return (
         <div className="Error">

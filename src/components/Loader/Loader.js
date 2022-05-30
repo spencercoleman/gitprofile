@@ -1,9 +1,14 @@
 import './Loader.css';
 
-const Loader = () => {
+const Loader = ({theme}) => {
     return (
-        <div id="Loader">
-            Loading
+        <div className="Loader">
+            <div className="lds-ring">
+                <div style={{borderColor: `var(--${theme}-border-color) transparent transparent transparent`}}></div>
+                <div style={{borderColor: `var(--${theme}-border-color) transparent transparent transparent`}}></div>
+                <div style={{borderColor: `var(--${theme}-border-color) transparent transparent transparent`}}></div>
+                <div style={{borderColor: `var(--${theme}-border-color) transparent transparent transparent`}}></div>
+            </div>
         </div>
     );
 }
