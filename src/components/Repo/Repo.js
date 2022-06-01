@@ -11,7 +11,12 @@ class Repo extends React.Component {
     }
     
     getColor(language) {
-        return colors[language].color ? colors[language].color : '#bbb';
+        if (colors.hasOwnProperty(language)) {
+            if (colors[language] !== null) {
+                return colors[language].color
+            } 
+        }
+        return '#bbb';
     }
 
     render() {

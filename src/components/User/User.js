@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/http';
 import { FiBriefcase, FiMapPin, FiCalendar, FiLink, FiDownloadCloud } from 'react-icons/fi';
@@ -20,13 +19,7 @@ const User = ({isDarkTheme, setIsDarkTheme, rateRemaining, rateLimit}) => {
     let repos = null;
     let content = <Loader theme={theme} />;
 
-    useEffect(() => {
-        document.title = `Hub - ${params.userId}'s profile`;
-
-        return () => {
-            document.title = `Hub`;
-        }
-    }, []);
+    document.title = `Hub - ${params.userId}'s profile`;
 
     if (!isLoadingUser && fetchedUserData && !isLoadingRepos && fetchedRepoData) {
         user = fetchedUserData;
