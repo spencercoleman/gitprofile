@@ -28,10 +28,10 @@ const User = ({isDarkTheme, setIsDarkTheme, rateRemaining, rateLimit}) => {
         content = (
             <>
                 <Header isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
-                <div className="User">
-                    <div className="user-details">
+                <main className="User">
+                    <section className="user-details">
                         <div className="user-profile">
-                            <img className="user-avatar" src={user.avatar_url} alt={user.login}></img>
+                            <img className="user-avatar" src={user.avatar_url} alt={`${user.login}'s avatar`}></img>
                             <h1>{user.name}</h1>
                             <a href={user.html_url} target='_blank' rel='noreferrer'>@{user.login}</a>
                         </div>
@@ -44,8 +44,8 @@ const User = ({isDarkTheme, setIsDarkTheme, rateRemaining, rateLimit}) => {
                             {user.location && <li> <FiMapPin /> {user.location}</li>}
                             <li><FiCalendar /> Created {new Date(user.created_at).toLocaleDateString()}</li>
                         </ul>
-                    </div>
-                    <div className="user-content">
+                    </section>
+                    <section className="user-content">
                         <ul className="user-stats">
                             <li><h2>{user.public_repos.toLocaleString()}</h2>{user.public_repos === 1 ? 'repository' : 'repositories'}</li>
                             <li><h2>{user.public_gists.toLocaleString()}</h2> {user.public_gists === 1 ? 'gist' : 'gists'}</li>
@@ -58,8 +58,8 @@ const User = ({isDarkTheme, setIsDarkTheme, rateRemaining, rateLimit}) => {
                             {/* Two fetches are made so subtract those for better accuracy*/}
                             <FiDownloadCloud /> {rateRemaining - 2} / {rateLimit} requests remaining
                         </div>
-                    </div>
-                </div>
+                    </section>
+                </main>
             </>
         );
     }

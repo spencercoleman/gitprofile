@@ -23,7 +23,7 @@ const UserForm = ({isDarkTheme, username, setUsername}) => {
     document.title = "Hub";
 
     return (
-        <div className="UserForm">
+        <main className="UserForm">
             <h1>A better way to view your GitHub stats.</h1>
             <div className="icon">
                 <FiChevronDown />
@@ -39,7 +39,7 @@ const UserForm = ({isDarkTheme, username, setUsername}) => {
                     autoFocus>
                 </input>
             </form>
-        </div>
+        </main>
     );
 }
 

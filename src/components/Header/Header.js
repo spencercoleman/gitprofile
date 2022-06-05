@@ -13,12 +13,12 @@ const Header = ({isDarkTheme, setIsDarkTheme}) => {
     }
 
     return (
-        <div className={`Header ${theme}`}>
+        <header className={`Header ${theme}`}>
             <Link to="/"><FiGithub /></Link>
             <div className="theme-swap" onClick={handleClick}>
                 {isDarkTheme ? <FiSun /> : <FiMoon/>}
             </div>
-        </div>
+        </header>
     );
 }
 
