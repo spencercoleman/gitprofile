@@ -1,7 +1,8 @@
 {
-  "name": "gitprofile",
-  "version": "0.1.0",
+  "name": "hub",
+  "version": "1.0",
   "private": true,
+  "homepage": "https://spencercoleman.github.io/hub",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
@@ -12,6 +13,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -37,6 +40,7 @@
   },
   "devDependencies": {
     "chart.js": "^3.7.1",
+    "gh-pages": "^4.0.0",
     "react-chartjs-2": "^4.1.0",
     "react-flip-move": "^3.0.4",
     "react-icons": "^4.3.1",

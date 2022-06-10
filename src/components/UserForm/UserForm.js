@@ -14,7 +14,7 @@ const UserForm = ({isDarkTheme, username, setUsername}) => {
         event.preventDefault();
 
         if (username) {
-            navigate(`/${username}`)
+            navigate(`/hub/u/${username}`)
         }
 
         setUsername('');
@@ -24,7 +24,7 @@ const UserForm = ({isDarkTheme, username, setUsername}) => {
 
     return (
         <main className="UserForm">
-            <h1>A better way to view your GitHub stats.</h1>
+            <h1>A better way to view your GitHub stats</h1>
             <div className="icon">
                 <FiChevronDown />
             </div>

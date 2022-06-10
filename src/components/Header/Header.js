@@ -14,7 +14,7 @@ const Header = ({isDarkTheme, setIsDarkTheme}) => {
 
     return (
         <header className={`Header ${theme}`}>
-            <Link to="/"><FiGithub /></Link>
+            <Link to="/hub"><FiGithub /></Link>
             <div className="theme-swap" onClick={handleClick}>
                 {isDarkTheme ? <FiSun /> : <FiMoon/>}
             </div>
