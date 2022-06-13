@@ -2,7 +2,7 @@
   "name": "hub",
   "version": "1.0",
   "private": true,
-  "homepage": "https://spencercoleman.github.io/hub",
+  "homepage": "https://spencercoleman.github.io/hub/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",

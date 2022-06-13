@@ -4,11 +4,11 @@ import './Error.css';
 
 const Error = ({type}) => {
     let message = 'Something went wrong';
-    let action = <Link to="/hub">Try Again</Link>; 
+    let action = <Link to="/">Try Again</Link>; 
 
     if (type === '403') {
         message = 'Oops! You hit the rate limit';
-        action = <Link to="/hub">Try Again Later</Link>;
+        action = <Link to="/">Try Again Later</Link>;
     }
     else if (type === '404') {
         message = 'Couldn\'t find that user';

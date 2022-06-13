@@ -14,7 +14,7 @@ const UserForm = ({isDarkTheme, username, setUsername}) => {
         event.preventDefault();
 
         if (username) {
-            navigate(`/hub/u/${username}`)
+            navigate(`/${username}`)
         }
 
         setUsername('');

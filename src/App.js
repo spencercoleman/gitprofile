@@ -23,8 +23,8 @@ const App = () => {
     content = (
       <div className={`App ${theme}`}>
         <Routes>
-            <Route path="/hub" element={<UserForm isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} username={username} setUsername={setUsername} />} />
-            <Route path="/hub/u/:userId" element={<User isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} rateRemaining={rateRemaining} rateLimit={rateLimit}/>} />
+            <Route path="/" element={<UserForm isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} username={username} setUsername={setUsername} />} />
+            <Route path="/:userId" element={<User isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} rateRemaining={rateRemaining} rateLimit={rateLimit}/>} />
             <Route path="*" element={<Error />} />
         </Routes>
       </div>
