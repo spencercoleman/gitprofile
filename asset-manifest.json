@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/hub/static/css/main.357c143c.css",
-    "main.js": "/hub/static/js/main.78e59f95.js",
+    "main.css": "/hub/static/css/main.a10cec68.css",
+    "main.js": "/hub/static/js/main.0d99120c.js",
+    "static/media/barlow-all-400-normal.woff": "/hub/static/media/barlow-all-400-normal.9a898b4c5f67effe33ec.woff",
+    "static/media/barlow-latin-400-normal.woff2": "/hub/static/media/barlow-latin-400-normal.7fa387951673abf164b1.woff2",
+    "static/media/barlow-latin-ext-400-normal.woff2": "/hub/static/media/barlow-latin-ext-400-normal.da26d162ff5af71d6590.woff2",
+    "static/media/barlow-vietnamese-400-normal.woff2": "/hub/static/media/barlow-vietnamese-400-normal.7e78e8338af7efeda712.woff2",
     "index.html": "/hub/index.html",
-    "main.357c143c.css.map": "/hub/static/css/main.357c143c.css.map",
-    "main.78e59f95.js.map": "/hub/static/js/main.78e59f95.js.map"
+    "main.a10cec68.css.map": "/hub/static/css/main.a10cec68.css.map",
+    "main.0d99120c.js.map": "/hub/static/js/main.0d99120c.js.map"
   },
   "entrypoints": [
-    "static/css/main.357c143c.css",
-    "static/js/main.78e59f95.js"
+    "static/css/main.a10cec68.css",
+    "static/js/main.0d99120c.js"
   ]
 }
