@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components/macro";
+import "@fontsource/barlow";
 
 const GlobalStyle = createGlobalStyle`
     :root {
@@ -12,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
         --light-font-color: #0f0f14;
         --light-border-color: #9699a3;
 
-        --font-barlow: 'Barlow', sans-serif;
+        --font-barlow: "Barlow", sans-serif;
     }
 
     html {

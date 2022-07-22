@@ -39,11 +39,14 @@ const StyledRepo = styled.li`
     .repo-stats-container {
         display: flex;
         font-size: 0.9rem;
+        flex-wrap: wrap;
+        gap: 0.25rem;
     }
 
     .repo-stats {
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
         margin-right: auto;
         list-style: none;
         padding: 0;

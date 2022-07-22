@@ -48,8 +48,9 @@ const StyledUser = styled.main`
     }
     
     .user-stats {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(135px, 1fr));
+        gap: 1rem;
         padding: 1rem;
     }
 
@@ -58,10 +59,11 @@ const StyledUser = styled.main`
         justify-content: center;
         align-items: center;
         padding: 1rem;
-    }
+        margin-top: 2rem;
 
-    .rate-limit svg {
-        margin-right: 0.5rem;
+        svg {
+            margin-right: 0.5rem;
+        }
     }
 
     @media (min-width: 992px) {
