@@ -7,7 +7,7 @@
   A better way to view your GitHub stats and top repositories
 </p>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/84942739/173140834-8a0598ac-3dfe-429d-aea9-8288e4a6b7d3.png" />
+  <img src="https://user-images.githubusercontent.com/84942739/178912405-44c12e94-4105-42d8-b047-3eee7bde41b2.png" />
 </p>
 
 ## Set up and run the project 
