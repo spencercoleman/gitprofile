@@ -2,7 +2,7 @@ import React from 'react';
 import { FiFolder, FiStar, FiGitPullRequest } from 'react-icons/fi';
 import { BsFillCircleFill } from 'react-icons/bs';
 import { colors } from '../../utils/gitHubColors';
-import './Repo.css';
+import StyledRepo from '../../styles/StyledRepo';
 
 class Repo extends React.Component {
     constructor(props) {
@@ -20,10 +20,10 @@ class Repo extends React.Component {
     }
 
     render() {
-        const {theme, description, forks_count, html_url, language, name, size, stargazers_count} = this.props;
+        const {description, forks_count, html_url, language, name, size, stargazers_count} = this.props;
         
         return (
-            <li className={`Repo ${theme}`}>
+            <StyledRepo>
                 <a href={html_url} target="_blank" rel="noreferrer">
                     <div className="repo-name"><FiFolder /> <h3>{name}</h3></div>
                     <p>{description}</p>
@@ -36,7 +36,7 @@ class Repo extends React.Component {
                         {language && <span className="repo-language"><BsFillCircleFill  color={this.getColor(language)} /> {language}</span>}
                     </div>
                 </a>
-            </li>
+            </StyledRepo>
         );
     }
 }

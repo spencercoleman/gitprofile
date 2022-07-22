@@ -2,12 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/http';
 import { FiBriefcase, FiMapPin, FiCalendar, FiLink, FiDownloadCloud } from 'react-icons/fi';
+import StyledUser from '../../styles/StyledUser';
 import Header from '../Header/Header';
 import Charts from '../Charts/Charts';
 import UserRepos from '../UserRepos/UserRepos';
 import Loader from '../Loader/Loader';
 import Error from '../Error/Error';
-import './User.css';
 
 const User = ({isDarkTheme, setIsDarkTheme, rateRemaining, rateLimit}) => {
     const params = useParams();
@@ -28,17 +28,17 @@ const User = ({isDarkTheme, setIsDarkTheme, rateRemaining, rateLimit}) => {
         content = (
             <>
                 <Header isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
-                <main className="User">
-                    <section className="user-details">
+                <StyledUser>
+                    <section>
                         <div className="user-profile">
                             <img className="user-avatar" src={user.avatar_url} alt={`${user.login}'s avatar`}></img>
                             <h1>{user.name}</h1>
-                            <a href={user.html_url} target='_blank' rel='noreferrer'>@{user.login}</a>
+                            <a href={user.html_url} target="_blank" rel="noreferrer">@{user.login}</a>
                         </div>
                         {user.bio && (
-                            <p className={`user-bio ${theme}`}>{user.bio}</p>
+                            <p className="user-bio">{user.bio}</p>
                         )}
-                        <ul className={`user-info ${theme}`}>
+                        <ul className="user-info">
                             {user.blog && <li><FiLink /> <a href={user.blog} target='_blank' rel='noreferrer'>{user.blog}</a></li>}
                             {user.company && <li><FiBriefcase /> {user.company}</li>}
                             {user.location && <li> <FiMapPin /> {user.location}</li>}
@@ -53,13 +53,13 @@ const User = ({isDarkTheme, setIsDarkTheme, rateRemaining, rateLimit}) => {
                             <li><h2>{user.following.toLocaleString()}</h2> following</li>
                         </ul>
                         <Charts isDarkTheme={isDarkTheme} username={user.login} repos={repos} />
-                        <UserRepos theme={theme} username={user.login} repos={repos}/>
+                        <UserRepos username={user.login} repos={repos}/>
                         <div className="rate-limit">
                             {/* Two fetches are made so subtract those for better accuracy*/}
                             <FiDownloadCloud /> {rateRemaining - 2} / {rateLimit} requests remaining
                         </div>
                     </section>
-                </main>
+                </StyledUser>
             </>
         );
     }

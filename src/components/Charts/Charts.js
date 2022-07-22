@@ -1,30 +1,25 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import StyledCharts from '../../styles/StyledCharts';
 import LanguageChart from './LanguageChart';
-import StarredChart from './StarredChart';
 import LanguageStarsChart from './LanguageStarsChart';
-import './Charts.css';
 import 'react-tabs/style/react-tabs.css';
 
 const Charts = ({isDarkTheme, username, repos}) => {
-    const theme = isDarkTheme ? 'dark' : 'light';
-    
     return (
-        <Tabs className={`Charts ${theme}`}>
-            <TabList className={`react-tabs__tab-list ${theme}`} style={{borderBottom: `1px solid var(--${theme}-border-color)`}}>
-                <Tab style={{borderRight: `1px solid var(--${theme}-border-color)`}}>Languages Used</Tab>
-                <Tab>Stars per Language</Tab>
-                {/* <Tab>Most Starred Repos</Tab> */}
-            </TabList>
-            <TabPanel>
-                <LanguageChart isDarkTheme={isDarkTheme} username={username} repos={repos} />
-            </TabPanel>
-            <TabPanel>
-                <LanguageStarsChart isDarkTheme={isDarkTheme} username={username} repos={repos} />
-            </TabPanel>
-            {/* <TabPanel>
-                <StarredChart repos={repos} />
-            </TabPanel> */}
-        </Tabs>
+        <StyledCharts>
+            <Tabs>
+                <TabList className="react-tabs__tab-list">
+                    <Tab>Languages Used</Tab>
+                    <Tab>Stars per Language</Tab>
+                </TabList>
+                <TabPanel>
+                    <LanguageChart isDarkTheme={isDarkTheme} username={username} repos={repos} />
+                </TabPanel>
+                <TabPanel>
+                    <LanguageStarsChart isDarkTheme={isDarkTheme} username={username} repos={repos} />
+                </TabPanel>
+            </Tabs>
+        </StyledCharts>
     );
 }
 
