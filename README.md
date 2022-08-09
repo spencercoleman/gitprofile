@@ -4,7 +4,7 @@
   </a>
 </p> 
 <p align="center">
-  A better way to view your GitHub profile stats. Analyze your most used and starred languages and repositories using charts and helpful sorting features.
+  A better way to view your GitHub profile stats. Analyze your most used and starred languages and repositories with charts and helpful sorting features.
 </p>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/84942739/183583562-e4051748-cc5c-458c-a068-02850ff0dc4d.png" />
